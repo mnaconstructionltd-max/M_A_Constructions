@@ -1,3 +1,12 @@
+
+// const servicesLinks = [
+//   { name: "Quantity Takeoff & Estimation", href: "/quantity-takeoff" },
+//   { name: "Project Controls Management", href: "/project-controls" },
+//   { name: "BIM Coordination & 3D Modeling", href: "/bim-3d" },
+//   { name: "Bid Management & ITB Support", href: "/bid-management" },
+//   { name: "Value Engineering & Cost Optimization", href: "/value-engineering" },
+//   { name: "Remote Estimating & Outsourcing Support", href: "/remote-support" },
+// ];
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,15 +19,6 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-// const servicesLinks = [
-//   { name: "Quantity Takeoff & Estimation", href: "/quantity-takeoff" },
-//   { name: "Project Controls Management", href: "/project-controls" },
-//   { name: "BIM Coordination & 3D Modeling", href: "/bim-3d" },
-//   { name: "Bid Management & ITB Support", href: "/bid-management" },
-//   { name: "Value Engineering & Cost Optimization", href: "/value-engineering" },
-//   { name: "Remote Estimating & Outsourcing Support", href: "/remote-support" },
-// ];
-
 const servicesLinks = [
   { name: "Quantity Takeoff & Estimation", href: "#services" },
   { name: "Project Controls Management", href: "#services" },
@@ -28,7 +28,6 @@ const servicesLinks = [
   { name: "Remote Estimating & Outsourcing Support", href: "#services" },
 ];
 
-// Reusable links component
 const MenuLinks = ({
   links,
   handleClick,
@@ -37,21 +36,19 @@ const MenuLinks = ({
   links: typeof navLinks;
   handleClick: (href: string) => void;
   className?: string;
-}) => {
-  return (
-    <>
-      {links.map((link) => (
-        <button
-          key={link.name}
-          onClick={() => handleClick(link.href)}
-          className={`font-medium transition-all duration-200 ${className}`}
-        >
-          {link.name}
-        </button>
-      ))}
-    </>
-  );
-};
+}) => (
+  <>
+    {links.map((link) => (
+      <button
+        key={link.name}
+        onClick={() => handleClick(link.href)}
+        className={`font-medium transition-all duration-200 ${className}`}
+      >
+        {link.name}
+      </button>
+    ))}
+  </>
+);
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,13 +70,18 @@ const Navbar = () => {
     } else if (href.startsWith("#")) {
       if (location.pathname !== "/") {
         navigate("/");
-        setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" }), 100);
+        setTimeout(
+          () => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" }),
+          100
+        );
       } else {
         document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
       }
     } else if (href.startsWith("http")) {
       window.open(href, "_blank");
     }
+
+    // Close all menus when a link is clicked
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
     setIsMobileServicesOpen(false);
@@ -87,29 +89,48 @@ const Navbar = () => {
 
   const handleContactClick = () => {
     window.open("tel:+19544102970");
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
   };
 
-  // Scroll tracking
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      setIsScrolled(currentScroll > 20);
-      setIsHidden(currentScroll > lastScroll.current && currentScroll > 100);
-      lastScroll.current = currentScroll;
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Scroll tracking + click outside for mobile menu and dropdowns
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScroll = window.scrollY;
+    setIsScrolled(currentScroll > 20);
+    setIsHidden(currentScroll > lastScroll.current && currentScroll > 100);
+    lastScroll.current = currentScroll;
+  };
 
-  // Click outside to close dropdowns
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (moreRef.current && !moreRef.current.contains(event.target as Node)) setIsServicesOpen(false);
-      if (mobileMoreRef.current && !mobileMoreRef.current.contains(event.target as Node)) setIsMobileServicesOpen(false);
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as Node;
+
+    // Close desktop services dropdown if clicked outside
+    if (moreRef.current && !moreRef.current.contains(target)) {
+      setIsServicesOpen(false);
+    }
+
+    // Close mobile services dropdown if clicked outside
+    if (mobileMoreRef.current && !mobileMoreRef.current.contains(target)) {
+      setIsMobileServicesOpen(false);
+    }
+
+    // Close mobile menu if clicked outside
+    const mobileMenuEl = document.getElementById("mobile-menu");
+    if (isMobileMenuOpen && mobileMenuEl && !mobileMenuEl.contains(target)) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [isMobileMenuOpen]);
+
 
   return (
     <AnimatePresence>
@@ -150,7 +171,11 @@ const Navbar = () => {
                       transition={{ duration: 0.2 }}
                       className="absolute right-0 mt-3 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden"
                     >
-                      <MenuLinks links={servicesLinks} handleClick={handleClick} className="text-black text-left px-5 py-3 hover:text-used" />
+                      <MenuLinks
+                        links={servicesLinks}
+                        handleClick={handleClick}
+                        className="text-black text-left px-5 py-3 hover:text-used"
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -166,7 +191,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white"
+              className="md:hidden text-used"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
@@ -178,39 +203,58 @@ const Navbar = () => {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
+                id="mobile-menu"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="md:hidden mt-2 pt-4 border-t border-gray-200 flex flex-col gap-2 bg-black/60 backdrop-blur-lg rounded-xl"
+                className="md:hidden mt-2 pt-4 border-t border-gray-200 flex flex-col gap-2 bg-white/40 backdrop-blur-md rounded-xl shadow-lg"
               >
-                <MenuLinks links={navLinks} handleClick={handleClick} className="text-white text-left px-4 py-2 hover:text-primary" />
+                {/* Mobile Nav Links */}
+                <MenuLinks
+                  links={navLinks}
+                  handleClick={handleClick}
+                  className="text-black text-left px-4 py-3 hover:text-used font-medium transition-colors duration-200"
+                />
 
                 {/* Mobile Services Dropdown */}
                 <div className="flex flex-col" ref={mobileMoreRef}>
                   <button
-                    className="flex justify-between items-center px-4 py-3 font-medium text-white hover:text-primary"
+                    className="flex justify-between items-center px-4 py-3 font-medium text-black hover:text-used transition-colors duration-200"
                     onClick={() => setIsMobileServicesOpen((prev) => !prev)}
                   >
-                    Services <ChevronDown size={18} className={`transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : "rotate-0"}`} />
+                    Services{" "}
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform duration-300 ${
+                        isMobileServicesOpen ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
                   </button>
+
                   <AnimatePresence>
                     {isMobileServicesOpen && (
                       <motion.div
+                        id="mobile-dropdown"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="flex flex-col bg-black/30 border-t border-gray-600"
+                        className="flex flex-col bg-white border-t border-gray-200 rounded-b-lg overflow-hidden"
                       >
-                        <MenuLinks links={servicesLinks} handleClick={handleClick} className="text-white text-left px-6 py-3 hover:bg-white/10 hover:text-primary" />
+                        <MenuLinks
+                          links={servicesLinks}
+                          handleClick={handleClick}
+                          className="text-black text-left px-6 py-3 hover:text-used hover:bg-gray-50 font-medium transition-colors duration-200"
+                        />
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
 
+                {/* Call Us Button */}
                 <Button
                   onClick={handleContactClick}
-                  className="bg-primary text-white hover:bg-orange/40 hover:text-black font-semibold px-6 rounded-2xl mx-4 my-2"
+                  className="bg-used_dark text-white hover:bg-used_dark/80 hover:text-white font-semibold px-6 rounded-2xl mx-4 my-2 transition-colors duration-200"
                 >
                   Call Us
                 </Button>
