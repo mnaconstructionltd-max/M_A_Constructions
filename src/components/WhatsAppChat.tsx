@@ -71,24 +71,27 @@ const WhatsAppChat = () => {
   );
 };
 
-const WhatsAppImageButton = ({ onClick }) => (
+
+const WhatsAppImageButton = ({ onClick }: { onClick: () => void }) => (
   <button
     onClick={onClick}
     className="
+      flex flex-col items-center justify-center
       rounded-full
       cursor-pointer
-      flex items-center justify-center
-      animate-alarm
       transition-transform duration-300
+      gap-2
     "
     aria-label="Chat on WhatsApp"
   >
     <img
       src="/whatsapp.png"
       alt="WhatsApp"
-      className="w-14 h-14"
+      className="w-14 h-14 animate-alarm"
     />
+    <span className="text-sm font-medium text-black bg-white/80">Chat with us</span>
   </button>
 );
+
 
 export default WhatsAppChat;

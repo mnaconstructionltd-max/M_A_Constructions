@@ -28,7 +28,7 @@ const BackToTop = () => {
           <ArrowUp
             className="w-8 h-8 animate-bounce-slow text-used"
           />
-          <span className="text-xs mt-1 tracking-wide">Back to Top</span>
+          <span className="text-xs mt-1 tracking-wide bg-white/80">Back to Top</span>
 
           <style>{`
             @keyframes shake {
