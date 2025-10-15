@@ -83,28 +83,29 @@ const About = () => {
         </div>
 
         {/* Feature Grid */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up"
-          style={{ animationDelay: "0.2s" }}
-        >
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative p-6 bg-white rounded-2xl shadow-card hover:shadow-hover transition-all duration-500 hover:-translate-y-2 border border-gray-100 overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/0 to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-steel rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                  <feature.icon className="h-7 w-7 text-used" />
-                </div>
-                <h3 className="font-bold text-lg text-charcoal mb-2 group-hover:text-primary transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{feature.desc}</p>
-              </div>
-            </div>
-          ))}
+<div
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up justify-items-center"
+  style={{ animationDelay: "0.2s" }}
+>
+  {features.map((feature, index) => (
+    <div
+      key={index}
+      className="group relative p-6 bg-white rounded-2xl shadow-card hover:shadow-hover transition-all duration-500 hover:-translate-y-2 border border-gray-100 overflow-hidden w-full sm:w-auto"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/0 to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative flex flex-col items-center text-center">
+        <div className="w-14 h-14 bg-gradient-to-br from-primary to-steel rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg">
+          <feature.icon className="h-7 w-7 text-used" />
         </div>
+        <h3 className="font-bold text-lg text-charcoal mb-2 group-hover:text-primary transition-colors duration-300">
+          {feature.title}
+        </h3>
+        <p className="text-sm text-muted-foreground">{feature.desc}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   );
