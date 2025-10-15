@@ -9,15 +9,12 @@ import CookiePolicy from "./pages/cookies";
 import TermsOfService from "./pages/terms";
 import NotFound from "./pages/NotFound";
 
-import QuantityTakeoff from "./pages/Services/QuantityTakeoffEstimation";
-import ProjectControls from "./pages/Services/ProjectControlsManagement";
-import BIMCoordination from "./pages/Services/BIM3DCoordination";
-import BidManagement from "./pages/Services/BidManagementSupport";
-import ValueEngineering from "./pages/Services/ValueEngineering";
-import RemoteSupport from "./pages/Services/RemoteEstimatingSupport";
-
-
-
+// import QuantityTakeoff from "./pages/Services/QuantityTakeoffEstimation";
+// import ProjectControls from "./pages/Services/ProjectControlsManagement";
+// import BIMCoordination from "./pages/Services/BIM3DCoordination";
+// import BidManagement from "./pages/Services/BidManagementSupport";
+// import ValueEngineering from "./pages/Services/ValueEngineering";
+// import RemoteSupport from "./pages/Services/RemoteEstimatingSupport";
 
 const queryClient = new QueryClient();
 
@@ -30,12 +27,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
 
-          <Route path="/quantity-takeoff" element={<QuantityTakeoff />} />
+          {/* <Route path="/quantity-takeoff" element={<QuantityTakeoff />} />
           <Route path="/project-controls" element={<ProjectControls />} />
           <Route path="/bim-3d" element={<BIMCoordination />} />
           <Route path="/bid-management" element={<BidManagement />} />
           <Route path="/value-engineering" element={<ValueEngineering />} />
-          <Route path="/remote-support" element={<RemoteSupport />} />
+          <Route path="/remote-support" element={<RemoteSupport />} /> */}
 
           <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiePolicy />} />

@@ -95,29 +95,25 @@ const Hero = () => {
 
         </div>
       </div>
-
-      {/* Elegant Scroll Indicator */}
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div
-          onClick={() => {
-            const nextSection = document.querySelector("#next-section");
-            nextSection?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="cursor-pointer"
-          aria-label="Scroll to next section"
-        >
-          <img
-            src="/Scroll.svg"
-            alt="Scroll Indicator"
-            className="w-10 h-10"
-            style={{ transform: "rotate(315deg)" }}
-          />
-        </div>
-      </div>
-
-
-
-
+{/* Elegant Scroll Indicator */}
+<div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-50 animate-bounce">
+  <button
+    onClick={() => {
+      const nextSection = document.querySelector("#services");
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className="focus:outline-none"
+    aria-label="Scroll to next section"
+  >
+    <img
+      src="/Scroll.svg"
+      alt="Scroll Indicator"
+      className="w-10 h-10 rotate-[315deg] cursor-pointer"
+    />
+  </button>
+</div>
 
     </section>
   );

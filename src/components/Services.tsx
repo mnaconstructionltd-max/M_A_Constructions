@@ -43,26 +43,7 @@ const services = [
 const Services = () => {
   return (
     <section id="services" className="relative py-16 bg-gradient-to-b from-secondary/20 via-white to-background overflow-hidden">
-      {/* Animated Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0 bg-transparent"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px',
-            animation: 'gridMove 20s linear infinite'
-          }}
-        />
-      </div>
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" 
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)`,
-            backgroundSize: '48px 48px'
-          }}
-        />
-      </div>
+      
 
       {/* Floating Accent Elements */}
       <div className="absolute top-40 right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl animate-pulse" />

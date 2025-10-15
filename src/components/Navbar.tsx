@@ -10,13 +10,22 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+// const servicesLinks = [
+//   { name: "Quantity Takeoff & Estimation", href: "/quantity-takeoff" },
+//   { name: "Project Controls Management", href: "/project-controls" },
+//   { name: "BIM Coordination & 3D Modeling", href: "/bim-3d" },
+//   { name: "Bid Management & ITB Support", href: "/bid-management" },
+//   { name: "Value Engineering & Cost Optimization", href: "/value-engineering" },
+//   { name: "Remote Estimating & Outsourcing Support", href: "/remote-support" },
+// ];
+
 const servicesLinks = [
-  { name: "Quantity Takeoff & Estimation", href: "/quantity-takeoff" },
-  { name: "Project Controls Management", href: "/project-controls" },
-  { name: "BIM Coordination & 3D Modeling", href: "/bim-3d" },
-  { name: "Bid Management & ITB Support", href: "/bid-management" },
-  { name: "Value Engineering & Cost Optimization", href: "/value-engineering" },
-  { name: "Remote Estimating & Outsourcing Support", href: "/remote-support" },
+  { name: "Quantity Takeoff & Estimation", href: "#services" },
+  { name: "Project Controls Management", href: "#services" },
+  { name: "BIM Coordination & 3D Modeling", href: "#services" },
+  { name: "Bid Management & ITB Support", href: "#services" },
+  { name: "Value Engineering & Cost Optimization", href: "#services" },
+  { name: "Remote Estimating & Outsourcing Support", href: "#services" },
 ];
 
 // Reusable links component

@@ -1,107 +1,91 @@
-import { motion } from "framer-motion";
-import { Target, Eye } from "lucide-react";
+import React from 'react';
+import MissionVisionCard from '../components/ui/MissionVisionCard';
+import CoreValueCard from '../components/ui/CoreValueCard';
+import { TargetIcon } from '../components/icons/TargetIcon';
+import { EyeIcon } from '../components/icons/EyeIcon';
+import { PrecisionIcon } from '../components/icons/PrecisionIcon';
+import { TransparencyIcon } from '../components/icons/TransparencyIcon';
+import { InnovationIcon } from '../components/icons/InnovationIcon';
+import { ExcellenceIcon } from '../components/icons/ExcellenceIcon';
 
-const Mission = () => {
-  const coreValues = [
-    { title: "Precision", desc: "Accurate and reliable in every estimate we deliver." },
-    { title: "Transparency", desc: "Clear communication and open processes at all stages." },
-    { title: "Innovation", desc: "Leveraging modern tech for smarter construction solutions." },
-    { title: "Excellence", desc: "Committed to setting new standards of quality." },
-  ];
-
+const Mission: React.FC = () => {
   return (
-    <section
-      id="mission"
-      className="relative py-16 bg-white overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `linear-gradient(90deg, rgba(255,215,0,0.2) 1px, transparent 1px), linear-gradient(rgba(255,215,0,0.2) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gold/10 blur-3xl rounded-full animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-primary/10 blur-3xl rounded-full animate-pulse delay-1000" />
-      </div>
+    <div className="relative min-h-screen w-full overflow-hidden bg-slate-50 font-sans antialiased">
+      {/* Background Grid */}
+      {/* <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:6rem_6rem] opacity-20"></div> */}
+      {/* Sparkles */}
+      <div className="absolute top-1/4 left-10 h-2 w-2 rounded-full bg-white opacity-70 shadow-[0_0_10px_2px_#fff]"></div>
+      <div className="absolute top-1/2 right-20 h-1.5 w-1.5 rounded-full bg-white opacity-70 shadow-[0_0_8px_1px_#fff]"></div>
+      <div className="absolute bottom-1/4 left-1/3 h-1 w-1 rounded-full bg-white opacity-70 shadow-[0_0_6px_1px_#fff]"></div>
+      <div className="absolute bottom-16 right-1/4 h-2 w-2 rounded-full bg-white opacity-70 shadow-[0_0_10px_2px_#fff]"></div>
+      <div className="absolute top-20 right-1/3 h-1 w-1 rounded-full bg-white opacity-70 shadow-[0_0_6px_1px_#fff]"></div>
 
-      <div className="relative container mx-auto px-6 lg:px-12 z-10">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <span className="text-sm font-bold text-used_dark uppercase tracking-widest px-4 py-2 bg-used_dark/10 rounded-full">
-            Our Foundation
-          </span>
-          <h2 className="text-5xl md:text-6xl font-bold mt-6 text-charcoal">
-            Mission & <span className="text-transparent bg-clip-text bg-gradient-to-r from-used_dark to-used_dark">Vision</span>
-          </h2>
-           <div className="w-24 h-1.5 bg-gradient-to-r from-gold via-used/30 to-used mx-auto rounded-full mb-6 mt-5" />
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mt-4 font-light">
-            Building a future of precision, integrity, and innovation in construction excellence.
-          </p>
-        </div>
-
-        {/* Mission + Vision Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Mission */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-100 shadow-lg p-10 hover:shadow-xl transition-all"
-          >
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 shadow-md">
-              <Target className="h-8 w-8 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-2xl font-bold text-charcoal mb-4">Our Mission</h3>
-            <p className="text-lg text-gray-700 leading-relaxed text-justify">
-              To empower the construction industry with reliable, technology-driven estimating,
-              BIM, and project control solutions that enhance efficiency, precision, and profitability.
-            </p>
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-gold/10 to-transparent rounded-bl-full opacity-0 hover:opacity-100 transition-opacity duration-700" />
-          </motion.div>
-
-          {/* Vision */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-100 shadow-lg p-10 hover:shadow-xl transition-all"
-          >
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 shadow-md">
-              <Eye className="h-8 w-8 text-white" strokeWidth={2.5} />
-            </div>
-            <h3 className="text-2xl font-bold text-charcoal mb-4">Our Vision</h3>
-            <p className="text-lg text-gray-700 leading-relaxed text-justify">
-              To be America’s most trusted construction estimating and BIM services partner, redefining accuracy,
-              innovation, and transparency across every project we touch.
-            </p>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-full opacity-0 hover:opacity-100 transition-opacity duration-700" />
-          </motion.div>
-        </div>
-
-        {/* Core Values */}
-        <div className="mt-24 text-center">
-          <h3 className="text-2xl font-semibold mb-10 text-charcoal">Our Core Values</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {coreValues.map((value, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-2"
-              >
-                <h4 className="text-lg font-bold text-used_dark to-used_dark mb-2">{value.title}</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{value.desc}</p>
-              </motion.div>
-            ))}
+      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center p-4 sm:p-8">
+        <div className="w-full max-w-6xl space-y-16 py-16">
+          {/* Header */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-bold text-used_dark uppercase tracking-widest px-4 py-2 bg-used_dark/10 rounded-full">
+              Core Values
+            </span>
           </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-charcoal">
+            Mission & {" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-used_dark to-used_dark">
+              Vision
+            </span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-gold via-used/30 to-used mx-auto rounded-full" />
         </div>
-      </div>
-    </section>
+          {/* Mission and Vision Section */}
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <MissionVisionCard
+              icon={<TargetIcon className="h-20 w-20 text-white" />}
+              title="Our Mission"
+              description="To empower the construction industry with reliable, technology-driven estimating, BIM, and project control solutions that enhance efficiency, precision, and profitability."
+              glowEffect="from-amber-400/80 via-amber-400/40 to-transparent"
+            />
+            <MissionVisionCard
+              icon={<EyeIcon className="h-20 w-20 text-white" />}
+              title="Our Vision"
+              description="To be America’s most trusted construction estimating and BIM services partner, redefining accuracy, innovation, and transparency across every project we touch."
+              glowEffect="from-blue-500/80 via-blue-500/40 to-transparent"
+            />
+          </section>
+
+          {/* Core Values Section */}
+          <section className="space-y-8">
+            <h2 className="text-center text-3xl font-bold text-gray-800">
+              CORE VALUES
+            </h2>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <CoreValueCard
+                icon={<PrecisionIcon className="h-10 w-10 text-amber-500" />}
+                title="Precision"
+                description="Accurate and reliable in every estimate we deliver."
+              />
+              <CoreValueCard
+                icon={<TransparencyIcon className="h-10 w-10 text-blue-500" />}
+                title="Transparency"
+                description="Clear communication and open processes at all stages."
+              />
+              <CoreValueCard
+                icon={<InnovationIcon className="h-10 w-10 text-blue-500" />}
+                title="Innovation"
+                description="Leveraging modern tech for smarter construction solutions."
+              />
+              <CoreValueCard
+                icon={<ExcellenceIcon className="h-10 w-10 text-amber-500" />}
+                title="Excellence"
+                description="Committed to setting new standards of quality."
+              />
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
   );
 };
 
 export default Mission;
+;

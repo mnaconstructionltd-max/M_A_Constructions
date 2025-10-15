@@ -5,6 +5,8 @@ import Services from "@/components/Services";
 import Mission from "@/components/Mission";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
+import WhatsAppChat from "@/components/WhatsAppChat";
 
 const Index = () => {
   return (
@@ -16,6 +18,9 @@ const Index = () => {
       <Mission />
       <Contact />
       <Footer />
+      <BackToTop />
+      <WhatsAppChat />
+
     </main>
   );
 };

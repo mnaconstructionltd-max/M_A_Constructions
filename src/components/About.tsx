@@ -13,6 +13,27 @@ const About = () => {
       id="about"
       className="relative py-16 bg-gradient-to-b from-background via-white to-secondary/20 overflow-hidden"
     >
+      {/* Animated Grid Lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 bg-transparent"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
+            backgroundSize: '80px 80px',
+            animation: 'gridMove 20s linear infinite'
+          }}
+        />
+      </div>
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" 
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)`,
+            backgroundSize: '48px 48px'
+          }}
+        />
+      </div>
+
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />

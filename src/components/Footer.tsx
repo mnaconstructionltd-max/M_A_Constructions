@@ -91,7 +91,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-white/70 text-sm">
-              Serving clients nationwide across the United States.
+              Serving clients nationwide across the Australia.
             </p>
           </div>
           

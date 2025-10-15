@@ -74,7 +74,7 @@ const ContactSection = () => {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-500">WEBSITE</p>
                   <p className="text-lg font-semibold text-gray-800">
-                    www.mnaconstruction.com
+                    www.maconstruction-llc.com
                   </p>
                 </div>
               </div>
@@ -83,19 +83,6 @@ const ContactSection = () => {
             <div className="p-4 border-l-4 border-used_dark bg-gray-50 mt-8 rounded-xl text-gray-700 text-sm">
               <span className="text-used_dark font-bold">Note:</span> We operate entirely online, providing nationwide support for
               estimating and project management.
-            </div>
-            {/* Map placeholder */}
-            <div className="h-64 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d407.2544500432885!2d81.71900848726843!3d16.50687346331273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2981267f16051aeb%3A0xfeeeb9dfd47e98f0!2ssweveninteriosolutions!5e1!3m2!1ste!2sin!4v1760088865563!5m2!1ste!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Location map"
-              />
             </div>
           </div>
           
