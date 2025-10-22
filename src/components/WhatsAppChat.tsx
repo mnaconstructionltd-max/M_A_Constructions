@@ -8,7 +8,7 @@ const WhatsAppChat = () => {
     const message = encodeURIComponent(
       "Hi! I'm interested in your Construction services."
     );
-    const phoneNumber = "13099899951";
+    const phoneNumber = "+919544102970";
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

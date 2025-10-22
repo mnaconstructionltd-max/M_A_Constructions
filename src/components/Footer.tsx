@@ -72,26 +72,26 @@ const Footer = () => {
             </h4>
             <div className="flex gap-3 mb-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/m-a-construction-services-llc/?viewAsMember=true"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-used_dark/60 transition"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/m_a_construction_services?igsh=MWExa3N0ajdzc2ZhZw%3D%3D&utm_source=qr"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-used_dark/60 transition"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/M&A_Construction_services"
                 className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-used_dark/60 transition"
               >
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
             <p className="text-white/70 text-sm">
-              Serving clients nationwide across the Australia.
+              Serving clients nationwide across the United States.
             </p>
           </div>
           
