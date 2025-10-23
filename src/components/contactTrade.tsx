@@ -138,10 +138,7 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mt-6 text-charcoal">
-            Lets Build{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-used_dark to-used_dark">
-              Together
-            </span>
+Ready to Get Started ?
           </h2>
           <p className="text-lg text-gray-600 mt-8">
             Get in touch for a free consultation and quote

@@ -8,6 +8,11 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 import CookiePolicy from "./pages/cookies";
 import TermsOfService from "./pages/terms";
 import NotFound from "./pages/NotFound";
+import PricingPage from "./pages/pricing";
+
+import CsiTrades from "./pages/TradePage"
+
+import CSITradeDetail from "./pages/TradeDetailPage"
 
 // import QuantityTakeoff from "./pages/Services/QuantityTakeoffEstimation";
 // import ProjectControls from "./pages/Services/ProjectControlsManagement";
@@ -33,6 +38,13 @@ const App = () => (
           <Route path="/bid-management" element={<BidManagement />} />
           <Route path="/value-engineering" element={<ValueEngineering />} />
           <Route path="/remote-support" element={<RemoteSupport />} /> */}
+
+
+          n<Route path="/pricing" element={<PricingPage />} />
+
+          <Route path="/csi-trades" element={<CsiTrades />} />
+          <Route path="/csi-trades/:divisionId" element={<CSITradeDetail />} />
+
 
           <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiePolicy />} />

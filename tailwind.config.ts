@@ -37,10 +37,13 @@ export default {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+
+              
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          love: "hsl(var(--accent-love))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
