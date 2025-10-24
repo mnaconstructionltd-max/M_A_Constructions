@@ -29,6 +29,7 @@ import { plumbingData } from "@/data/plumbing";
 import { roofingData } from "@/data/roofing";
 import { structuralSteelData } from "@/data/structural-steel";
 import { waterproofingData } from "@/data/waterproofing";
+import BackToTop from "@/components/BackToTop";
 
 const divisionDataMap: Record<string, any> = {
   carpentry: carpentryData,
@@ -81,7 +82,6 @@ const sectionContainerAnim: Variants = {
   },
 };
 
-
 const sectionTitleAnim = {
   hidden: { opacity: 0, x: -30 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.45 } },
@@ -98,7 +98,6 @@ const mainPageVariants: Variants = {
     transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
   },
 };
-
 
 const sectionRenderers: Record<string, (data: any) => JSX.Element | null> = {
   hero: (data) =>
@@ -133,23 +132,31 @@ const sectionRenderers: Record<string, (data: any) => JSX.Element | null> = {
             transition={{ delay: 0.1, duration: 0.5 }}
           >{data.hero.subtitle}</motion.p>}
           <div className="flex flex-col sm:flex-row gap-4">
-            {data.hero.ctaText && <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.13, duration: 0.35 }}
-            >
-              <Button size="lg" className="w-full sm:w-auto transition-transform active:scale-95 bg-used_dark">{data.hero.ctaText}</Button>
-            </motion.div>}
+            {data.hero.ctaText && (
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.13, duration: 0.35 }}
+              >
+                <a href="#contact">
+                  <Button size="lg" className="w-full sm:w-auto transition-transform active:scale-95 bg-used_dark hover:bg-used_dark/80">
+                    {data.hero.ctaText}
+                </Button>
+                </a>
+              </motion.div>
+            )}
             {data.hero.phone && (
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.36 }}
               >
-                <Button size="lg" variant="outline" className="w-full sm:w-auto transition-transform active:scale-95 bg-primary hover:bg-primary/70">
-                  <Phone className="mr-2 h-5 w-5" /> {data.hero.phone}
-                </Button>
-              </motion.div>
+                <a href={`tel:${data.hero.phone.replace(/[^+\d]/g, "")}`}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto transition-transform active:scale-95 bg-primary hover:bg-primary/70">
+                    <Phone className="mr-2 h-5 w-5" /> {data.hero.phone}
+            </Button>
+                </a>
+      </motion.div>
             )}
           </div>
         </div>
@@ -171,7 +178,7 @@ const sectionRenderers: Record<string, (data: any) => JSX.Element | null> = {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-        >
+      >
           {data.overview}
         </motion.p>
       </motion.section>
@@ -210,7 +217,7 @@ const sectionRenderers: Record<string, (data: any) => JSX.Element | null> = {
                   <CheckCircle2 className="w-6 h-6 text-used mb-3" />
                   <p className="text-base md:text-lg">{benefit}</p>
                 </Card>
-              </motion.div>
+      </motion.div>
             ))}
           </div>
         </div>
@@ -761,6 +768,7 @@ const CSITradeDetail = () => {
         <Navbar />
         <main className="flex-grow">
           {Object.keys(sectionRenderers).map((key) => sectionRenderers[key](data))}
+                              <BackToTop />
         </main>
         <Contacttrade />
         <Footer />
