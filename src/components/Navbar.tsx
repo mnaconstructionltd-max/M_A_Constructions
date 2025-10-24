@@ -10,14 +10,6 @@ interface NavLink {
   subLinks?: NavLink[];
 }
 
-const navLinks: NavLink[] = [
-  { name: "Home", href: "#hero" },
-  { name: "Projects", href: "#Projects" },
-  { name: "Contact", href: "#contact" },
-  { name: "Pricing", href: "/pricing" },
-
-];
-
 const servicesLinks: NavLink[] = [
   { name: "Quantity Takeoff & Estimation", href: "#services" },
   { name: "Project Controls Management", href: "#services" },
@@ -26,6 +18,7 @@ const servicesLinks: NavLink[] = [
   { name: "Value Engineering & Cost Optimization", href: "#services" },
   { name: "Remote Estimating & Outsourcing Support", href: "#services" },
 ];
+
 const csiLinks: NavLink[] = [
   {
     name: "Finishes",
@@ -72,7 +65,7 @@ const csiLinks: NavLink[] = [
     name: "Openings",
     href: "#",
     subLinks: [
-      { name: "Doors & Windows", href: "/csi-trades/doors-windows" },
+      { name: "Doors & Windows", href: "/csi-trades/doorsWindows" },
     ],
   },
   {
@@ -130,8 +123,6 @@ const NestedMenuLinks = ({
                     usedSetOpenIndex(index);
                     usedSetOpenSubIndex(null);
                   }
-                } else {
-                  // desktop handled elsewhere
                 }
               } else {
                 handleClick(link.href);
@@ -446,50 +437,20 @@ const Navbar = () => {
               <img src="/logo.png" alt="Logo" className="h-20 md:h-24 w-auto" />
             </span>
             <div className="hidden md:flex items-center gap-6 relative">
-              {navLinks.map((link) => (
                 <button
-                  key={link.name}
-                  onClick={() => handleClick(link.href)}
+                onClick={() => handleClick("#hero")}
                   className="text-black font-medium hover:text-used"
                   type="button"
                 >
-                  {link.name}
+                Home
                 </button>
-              ))}
-
-              <div
-                className="relative"
-                ref={csiRef}
-                onMouseEnter={() => setDesktopCsiOpen(true)}
-                onMouseLeave={() => setDesktopCsiOpen(false)}
-              >
-                <button
-                  className="flex items-center gap-1 text-black hover:text-used font-medium"
+              <button
+                onClick={() => handleClick("/projects")}
+                className="text-black font-medium hover:text-used"
                   type="button"
-                  aria-haspopup="true"
-                  aria-expanded={desktopCsiOpen}
-                  onClick={() => handleClick("/csi-trades")}
                 >
-                  CSI Trades <ChevronDown size={16} />
-                </button>
-                <AnimatePresence>
-                  {desktopCsiOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-10 right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                    >
-                      <NestedMenuLinks
-                        links={csiLinks}
-                        handleClick={handleClick}
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
+                Projects
+              </button>
               <div
                 className="relative"
                 ref={servicesRef}
@@ -527,7 +488,59 @@ const Navbar = () => {
                   )}
                 </AnimatePresence>
               </div>
-
+              <div
+                className="relative"
+                ref={csiRef}
+                onMouseEnter={() => setDesktopCsiOpen(true)}
+                onMouseLeave={() => setDesktopCsiOpen(false)}
+              >
+                <button
+                  className="flex items-center gap-1 text-black hover:text-used font-medium"
+                  type="button"
+                    aria-haspopup="true"
+                  aria-expanded={desktopCsiOpen}
+                  onClick={() => handleClick("/csi-trades")}
+                  >
+                  CSI Trades <ChevronDown size={16} />
+                </button>
+                <AnimatePresence>
+                  {desktopCsiOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                      className="absolute top-10 right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                      >
+                        <NestedMenuLinks
+                          links={csiLinks}
+                          handleClick={handleClick}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              <button
+                onClick={() => handleClick("/Estimations")}
+                className="text-black font-medium hover:text-used"
+                type="button"
+                  >
+                Sample Estimations
+              </button>
+                          <button
+                onClick={() => handleClick("/pricing")}
+                className="text-black font-medium hover:text-used"
+                            type="button"
+                          >
+                Pricing
+                          </button>
+              <button
+                onClick={() => handleClick("#contact")}
+                className="text-black font-medium hover:text-used"
+                type="button"
+              >
+                Contact
+              </button>
               <Button
                 onClick={handleContactClick}
                 className="bg-used_dark text-white hover:bg-white/40 hover:text-used hover:border font-semibold px-6 rounded-2xl"
@@ -554,10 +567,63 @@ const Navbar = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="md:hidden mt-2 pt-4 border-t border-gray-200 flex flex-col gap-2 bg-white/40 backdrop-blur-md rounded-xl shadow-lg"
               >
-                {/* NavLinks */}
-                <NestedMenuLinks links={navLinks} handleClick={handleClick} isMobile />
-
-                {/* CSI Trades top-level button */}
+                <button
+                  onClick={() => handleClick("#hero")}
+                  className="text-black font-medium px-6 py-2 text-left hover:text-used"
+                  type="button"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => handleClick("/projects")}
+                  className="text-black font-medium px-6 py-2 text-left hover:text-used"
+                  type="button"
+                >
+                  Projects
+                </button>
+                <div>
+                  <button
+                    className="flex justify-between items-center px-4 py-3 font-medium text-black hover:text-used transition-colors duration-200 w-full"
+                    onClick={() => {
+                      setMobileServicesOpen((prev) => !prev);
+                    }}
+                    type="button"
+                  >
+                    Services
+                    <motion.span
+                      animate={{
+                        rotate: mobileServicesOpen ? 180 : 0,
+                      }}
+                      transition={{ duration: 0.25 }}
+                      className="ml-2"
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
+                      <ChevronDown size={18} />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex flex-col bg-white border-t border-gray-200 rounded-b-lg overflow-hidden"
+                      >
+                        {servicesLinks.map((link) => (
+                          <button
+                            key={link.name}
+                            onClick={() => handleClick(link.href)}
+                            className="text-black text-left px-6 py-2 hover:text-used hover:bg-gray-50 w-full"
+                            type="button"
+                          >
+                            {link.name}
+                          </button>
+                        ))}
+                      </motion.div>
+      )}
+    </AnimatePresence>
+                </div>
                 <div>
                   <button
                     className="flex justify-between items-center px-4 py-3 font-medium text-black hover:text-used transition-colors duration-200 w-full"
@@ -611,56 +677,27 @@ const Navbar = () => {
                     )}
                   </AnimatePresence>
                 </div>
-
-                {/* Services Dropdown modeled similarly*/}
-                <div>
-                  <button
-                    className="flex justify-between items-center px-4 py-3 font-medium text-black hover:text-used transition-colors duration-200 w-full"
-                    onClick={() => {
-                      setMobileServicesOpen((prev) => {
-                        if (prev) {
-                          // closing top, reset any deeper states if added
-                        }
-                        return !prev;
-                      });
-                    }}
-                    type="button"
-                  >
-                    Services
-                    <motion.span
-                      animate={{
-                        rotate: mobileServicesOpen ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.25 }}
-                      className="ml-2"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <ChevronDown size={18} />
-                    </motion.span>
-                  </button>
-                  <AnimatePresence>
-                    {mobileServicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                        className="flex flex-col bg-white border-t border-gray-200 rounded-b-lg overflow-hidden"
-                      >
-                        {servicesLinks.map((link) => (
-                          <button
-                            key={link.name}
-                            onClick={() => handleClick(link.href)}
-                            className="text-black text-left px-6 py-2 hover:text-used hover:bg-gray-50 w-full"
-                            type="button"
-                          >
-                            {link.name}
-                          </button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                <button
+                  onClick={() => handleClick("/Estimations")}
+                  className="text-black font-medium px-6 py-2 text-left hover:text-used"
+                  type="button"
+                >
+                  Sample Estimations
+                </button>
+                <button
+                  onClick={() => handleClick("/pricing")}
+                  className="text-black font-medium px-6 py-2 text-left hover:text-used"
+                  type="button"
+                >
+                  Pricing
+                </button>
+                <button
+                  onClick={() => handleClick("#contact")}
+                  className="text-black font-medium px-6 py-2 text-left hover:text-used"
+                  type="button"
+                >
+                  Contact
+                </button>
                 <Button
                   onClick={handleContactClick}
                   className="bg-used_dark text-white hover:bg-used_dark/80 hover:text-white font-semibold px-6 rounded-2xl mx-4 my-2 transition-colors duration-200"

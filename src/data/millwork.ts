@@ -1,0 +1,95 @@
+// src/data/millwork.ts
+export const millworkData = {
+  id: "millwork",
+  title: "Millwork",
+  description: "Millwork estimates are the cornerstone of woodwork projects for contractors and carpenters. Accurate takeoffs ensure competitive bids and project profitability.",
+  hero: {
+    heading: "Millwork Estimating Services",
+    subheading: "Accurate, fast, and cost-effective millwork estimates for residential, commercial, and industrial projects",
+    ctaText: "Get Estimate",
+    phone: "+1 (954) 410-2970",
+  },
+  overview: {
+    paragraph: `Kelly Estimating delivers precise millwork estimates to maximize profits and minimize overheads, helping contractors win projects with a 96% success rate.`,
+  },
+  materials: [
+    "Cabinetry (base cabinets, wall cabinets, custom cabinetry)",
+    "Wood Trim & Molding (baseboard, crown molding, window trim, door casings)",
+    "Doors (interior, custom, panel)",
+    "Windows (custom wood windows, trim, sills)",
+    "Wood Paneling (wall paneling, wainscoting, custom wood panels)",
+    "Countertops (wood countertops, custom finishes)",
+    "Staircases (handrails, treads, risers, spindles)",
+    "Shelving Units (built-in shelving, closet systems)",
+    "Architraves (custom door and window frames)",
+    "Hardware (hinges, knobs, handles, latches)",
+    "Wood Flooring (custom wood floors, parquet patterns, floorboards)",
+  ],
+  services: [
+    "Bid Estimates for Millwork",
+    "Millwork Residential Estimates",
+    "Millwork Commercial Estimates",
+    "Millwork Industrial Estimates",
+    "Change Order Estimates",
+    "Preliminary Design Estimates",
+  ],
+  clients: [
+    "Woodworkers",
+    "Interior Designers",
+    "General Contractors",
+    "Millwork Contractors",
+    "Carpentry Contractors",
+    "Cabinetry Manufacturers",
+    "Construction Managers",
+    "Residential Builders",
+    "Commercial Developers",
+    "Furniture Manufacturers",
+  ],
+  deliverables: [
+    "Man-Hours",
+    "Labor and Material Costs",
+    "Marked-up drawing plans",
+    "Millwork/Woodwork Takeoff Material Quantities",
+    "Review of Inclusions and Exclusions",
+    "Bid Summary with Material, Labor, Equipment Costs, Overheads, Profit, Taxes",
+  ],
+  portfolio: [
+    {
+      project: "The Ritz-Carlton Residences, Miami Beach, FL",
+      type: "Residential",
+      description: "Custom cabinetry, decorative moldings, paneling, and doors. Detailed estimates helped simplify bidding and deliver precise budgets.",
+    },
+    {
+      project: "Blue Bottle Coffee, San Francisco, CA",
+      type: "Commercial",
+      description: "Custom counter installations, shelving units, seating, and decorative paneling. Estimates ensured high-quality and functional woodwork.",
+    },
+    {
+      project: "Apple Michigan Avenue, Chicago, IL",
+      type: "Commercial",
+      description: "Custom furniture, display units, and woodwork details for the store's modern design. Estimates ensured timely completion within budget.",
+    },
+  ],
+  faqs: [
+    "In which format do you deliver millwork estimates?",
+    "What industries do you serve?",
+    "Where do you provide your millwork estimating services?",
+  ],
+  testimonials: [
+    {
+      name: "David S.",
+      role: "Commercial Millwork Contractor",
+      quote: "My commercial millwork projects are diverse, and managing budgets and timelines is challenging. This team provided a clear, understandable estimate that helped us secure a large-scale contract.",
+    },
+    {
+      name: "Michael P.",
+      role: "General Contractor",
+      quote: "Their precise material quantities and labor costs for millwork to bid on an industrial project have helped a lot! The clarity and accuracy impressed the project manager.",
+    },
+    {
+      name: "John R.",
+      role: "Millwork Contractor",
+      quote: "Impressed with their detailed estimate, timely delivery, and cooperative behavior. They helped us submit more competitive bids and secure projects faster. I will definitely hire them again!",
+    },
+  ],
+};

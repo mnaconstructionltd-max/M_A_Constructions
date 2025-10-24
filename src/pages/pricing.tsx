@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import BackToTop from "@/components/BackToTop";
 
 const PricingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,9 +28,17 @@ const PricingPage = () => {
       <Navbar />
       <main>
         <section id="hero" className="relative min-h-[70vh] flex items-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-gray-100" />
+{/* Background overlays */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 opacity-15 pointer-events-none">
+              <img src="/bg4.png" alt="Blueprint" className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <div className="h-full w-full bg-grid-pattern"></div>
+            </div>
+          </div>
           <div className="relative z-10 container mx-auto px-4 py-36 text-center max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl font-bold text-gray-800 tracking-tight mb-6">
               Transparent, Competitive Pricing
             </h1>
             <p
@@ -78,6 +87,7 @@ const PricingPage = () => {
             </Card>
           </div>
         </section>
+                    <BackToTop />
       </main>
       <div id="contact">
         <ContactSection />

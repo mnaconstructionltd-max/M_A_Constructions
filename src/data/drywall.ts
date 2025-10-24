@@ -6,7 +6,7 @@ export const drywallData = {
       "Submit Smart Bids With Drywall Cost Estimating Services. Accurate takeoffs and comprehensive bid services tailored for drywall contractors and construction firms nationwide.",
     ctaText: "Get Estimate",
     ctaLink: "/contact",
-    phone: "+1 (239) 361-5454",
+    phone: "+1 (954) 410-2970",
   },
 
   overview:
